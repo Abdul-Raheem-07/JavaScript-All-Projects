@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock + Alarm + Stopwatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="clock-container">
+        <div>
+            <div id="clock"></div>
+            <div id="current-alarm-display">⏰ No alarm set</div>
+        </div>
+    </div>
+
+    <div id="mode-buttons">
+        <button onclick="showMode('alarm')">Alarm</button>
+        <button onclick="showMode('stopwatch')">Stopwatch</button>
+    </div>
+
+    <!-- Alarm Section -->
+    <div id="alarm-section" class="mode-section" style="display: none;">
+        <h2>Set Alarm</h2>
+        <input type="time" id="alarm-time">
+        <button onclick="setAlarm()">Set Alarm</button>
+        <p id="alarm-status"></p>
+
+        <!-- ✅ Added history -->
+        <h3>Alarm History</h3>
+        <ul id="alarm-history"></ul>
+    </div>
+
+    <!-- Flashing alarm overlay (✅ hidden by default) -->
+    <div id="alarm-overlay" style="display:none;">
+        <p>⏰ Alarm ringing!</p>
+        <button id="stop-alarm-btn" onclick="stopAlarm()">Stop Alarm</button>
+    </div>
+
+    <!-- Stopwatch Section -->
+    <div id="stopwatch-section" class="mode-section" style="display: none;">
+        <h2>Stopwatch</h2>
+        <div id="stopwatch-display">00:00:00</div>
+        <button onclick="startStopwatch()">Start</button>
+        <button onclick="stopStopwatch()">Stop</button>
+        <button onclick="resetStopwatch()">Reset</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
